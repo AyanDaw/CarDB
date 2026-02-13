@@ -95,12 +95,12 @@ def get_valid_year():
 
 
 def add_data():
-    company = input("Enter manufacturing company name: ").strip() or "N/A"
-    model = input("Enter car's model: ").strip() or "N/A"
+    company = input("\n\n\n\n\nEnter manufacturing company name: ").strip() or "N/A"
+    model = input("Enter car's model: ").strip().replace(" ", "-") or "N/A"
     year = get_valid_year()
     price = get_valid_price()
     safe_year = year if isinstance(year, int) else "NA"
-    picture = str(Path("img") / f"{company}_{model}_{safe_year}.jpg")
+    picture = str(Path("imgs") / f"{company}_{model}_{safe_year}.jpg")
     infosite = input("Enter information source link: ").strip() or "N/A"
 
     ev = EV(
@@ -116,6 +116,10 @@ def add_data():
 
     data = load_data()
     ev_dict = ev.to_dict()
+
+
+    print(f"Copy this! : \"{ev_dict['picture']}\" \nRename the image file with this!")
+
 
     if detect_duplicate(data, ev_dict["key"]):
         print("This item already exist!\nDo you still want to add it [y/N]: ")

@@ -1,6 +1,7 @@
 # 🚗 EV Database CLI (JSON-Based)
 
 A simple command-line Python application to manage Electric Vehicle (EV) data using a JSON file as storage.
+This is just a side fun project.
 
 ---
 
